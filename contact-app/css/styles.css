@@ -1,0 +1,5 @@
+body { background: #f8f9fa; }
+#addContactBtn { margin-left: auto; }
+.table-responsive { max-height: 60vh; overflow: auto; }
+.modal .form-control:invalid { box-shadow: none; }
+.alert-fixed { position: fixed; top: 1rem; right: 1rem; z-index: 1080; min-width: 220px; }
