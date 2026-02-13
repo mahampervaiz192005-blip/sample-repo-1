@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #36b9cc, #858796);
+        }
+
+        .profile-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .profile-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #36b9cc;
+        }
+
+        .profile-info {
+            margin-bottom: 10px;
+        }
+
+        .profile-info input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+
+        .profile-info span {
+            display: block;
+            font-size: 16px;
+            color: #555;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #36b9cc;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2c9faf;
+        }
+
+        @media (max-width: 480px) {
+            .profile-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <h2>User Profile</h2>
+
+    <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-pic">
+
+    <div class="profile-info">
+        <strong>Name:</strong>
+        <span id="nameText">Maham Pervaiz</span>
+        <input type="text" id="nameInput">
+    </div>
+
+    <div class="profile-info">
+        <strong>Email:</strong>
+        <span id="emailText">maham@example.com</span>
+        <input type="email" id="emailInput">
+    </div>
+
+    <button onclick="toggleEdit()">Edit Profile</button>
+</div>
+
+<script>
+    let isEditing = false;
+
+    function toggleEdit() {
+        let nameText = document.getElementById("nameText");
+        let emailText = document.getElementById("emailText");
+        let nameInput = document.getElementById("nameInput");
+        let emailInput = document.getElementById("emailInput");
+        let button = document.querySelector("button");
+
+        if (!isEditing) {
+            nameInput.value = nameText.textContent;
+            emailInput.value = emailText.textContent;
+
+            nameText.style.display = "none";
+            emailText.style.display = "none";
+
+            nameInput.style.display = "block";
+            emailInput.style.display = "block";
+
+            button.textContent = "Save";
+            isEditing = true;
+        } else {
+            nameText.textContent = nameInput.value;
+            emailText.textContent = emailInput.value;
+
+            nameText.style.display = "block";
+            emailText.style.display = "block";
+
+            nameInput.style.display = "none";
+            emailInput.style.display = "none";
+
+            button.textContent = "Edit Profile";
+            isEditing = false;
+        }
+    }
+</script>
+
+</body>
+</html>
